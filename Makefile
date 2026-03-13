@@ -18,3 +18,12 @@ data/raw/chicago-restaurants.csv:
 
 data/raw/community-areas.geojson:
 	curl https://data.cityofchicago.org/resource/igwz-8jzy.geojson -o $@
+
+build:
+	docker compose build
+
+up: build
+	docker compose up 
+
+down:
+	docker compose down --rmi 'all'
