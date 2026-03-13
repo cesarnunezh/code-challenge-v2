@@ -24,7 +24,7 @@ build:
 
 up: build
 	docker compose run --rm app python manage.py loaddata map/fixtures/restaurant_permits.json map/fixtures/community_areas.json
-	docker compose up 
+	docker compose up -d
 
 down:
 	docker compose down --rmi 'all'
