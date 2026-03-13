@@ -114,7 +114,7 @@ export default function RestaurantPermitMap() {
       weight: 1,
     })
 
-    layer.bindPopup(`<strong>${areaName}</strong><br/>Permits: ${numPermits}`)
+    layer.bindPopup(`<strong>${areaName}</strong><br/>Year: ${year} <br> Restaurant permits: ${numPermits}`)
 
     layer.on("mouseover", () => layer.openPopup())
     layer.on("mouseout", () => layer.closePopup())
