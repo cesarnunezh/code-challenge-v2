@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from rest_framework.exceptions import ValidationError
 
 from map.models import CommunityArea, RestaurantPermit
 
@@ -30,14 +31,14 @@ class CommunityAreaSerializer(serializers.ModelSerializer):
         """
         year = self.context.get("year")
 
-        qs = RestaurantPermit.objects.filter(
+        if year: 
+            query = RestaurantPermit.objects.filter(
             community_area_id=obj.area_id
         )
-
-        if year:
-            qs = qs.filter(issue_date__year=year)
-        
-        return {obj.name : {
-            'area_id' : obj.area_id,
-            'num_permits' : qs.count()
-            }}
+            
+            return {obj.name : {
+                'area_id' : obj.area_id,
+                'num_permits' : query.count()
+                }}
+        else:
+            raise(ValidationError('Year not specified.'))
