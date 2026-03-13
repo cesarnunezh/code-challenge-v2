@@ -21,19 +21,7 @@ Development requires a local installation of [Docker](https://docs.docker.com/ge
 Once you have Docker and Docker Compose installed, build the application containers from the project's root directory:
 
 ```bash
-docker compose build
-```
-
-Load in the data:
-
-```bash
-docker compose run --rm app python manage.py loaddata map/fixtures/restaurant_permits.json map/fixtures/community_areas.json
-```
-
-And finally, run the app:
-
-```bash
-docker compose up
+make up
 ```
 
 The app will log to the console, and you should be able to visit it at http://localhost:8000
