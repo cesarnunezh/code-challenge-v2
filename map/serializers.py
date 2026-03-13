@@ -10,7 +10,7 @@ class CommunityAreaSerializer(serializers.ModelSerializer):
 
     def to_representation(self, obj: CommunityArea):
         """
-        TODO: supplement each community area object with the number
+        Supplement each community area object with the number
         of permits issued in the given year.
 
         e.g. The endpoint /map-data/?year=2017 should return something like:
